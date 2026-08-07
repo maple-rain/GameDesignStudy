@@ -81,7 +81,9 @@ TIL은 분석 원문을 축약해서 대체하지 않습니다. 깊은 분석은
 
 ## Analysis Framework
 
-게임을 다음 기준으로 분석합니다. 상세 절차와 예시는 **[AnalysisFramework.md](./AnalysisFramework.md)** 에 정리되어 있습니다.
+상세 절차와 예시는 **[AnalysisFramework.md](./AnalysisFramework.md)** 에 정리되어 있습니다.
+
+### 사고 순서 (분석할 때)
 
 1. **게임의 핵심 요소 나열** — 판단 없이 존재하는 것만 적는다
 2. **재미 요소 분석** — 재미 → 이유 → 감정까지 연결한다
@@ -90,7 +92,17 @@ TIL은 분석 원문을 축약해서 대체하지 않습니다. 깊은 분석은
 5. **핵심 자원(Core Resource)** — 플레이어는 무엇이 항상 부족한가
 6. **개발 의도(가설)** — 이 게임은 무엇을 경험시키기 위해 만들어졌는가
 
-중요한 메커닉은 다음 공식으로 언어화합니다.
+### 문서 순서 (GameAnalysis에 남길 때)
+
+`1. 게임 개요` → `2. Core Experience` → `3. 재미 요소 분석` → `4. 핵심 메커닉 분석` →
+`5. 핵심 자원` → `6. 플레이 루프` → `7. Problem Chaining` → `8. 제거/변경 분석` →
+`9. 디자이너 의도 추론` → `10. 기획자로서 배울 점`
+
+제거 판단은 **사고에서는 3번**(메커닉을 훑기 전에 던져야 판단이 끌려가지 않는다),
+**문서에서는 8번**(근거를 깔고 결론으로 낸다)에 위치합니다.
+기준 문서는 [BabaIsYou.md](./GameAnalysis/BabaIsYou.md)입니다.
+
+### 메커닉 언어화 공식
 
 ```
 행동 → 규칙 → 결과 → 감정
@@ -101,6 +113,16 @@ TIL은 분석 원문을 축약해서 대체하지 않습니다. 깊은 분석은
 
 ## 다음 작업
 
-- [ ] 기존 GameAnalysis 12개 문서를 통일 템플릿으로 재작성 (현재 [Baba Is You](./GameAnalysis/BabaIsYou.md)만 적용)
+GameAnalysis 템플릿 통일 진행 상황
+
+- [x] 템플릿 확정 (10단계, 핵심 자원 포함, 톤 `~한다`)
+- [ ] 배치 1 — SlayTheSpire, Portal2, Celeste, ReturnOfTheObraDinn
+- [ ] 배치 2 — VampireSurvivors, HollowKnight, INSIDE
+- [ ] 배치 3 — PaperPlease, OuterWilds
+- [ ] 배치 4 — AmongUs, TheWitness, Factorio (구조는 있으나 내용 보강 및 핵심 자원 추가 필요)
+
+그 외
+
 - [ ] TIL 각 문서의 `분석일` 채우기
+- [ ] TIL/2026/08-07.md 용도 결정 (인덱스 전환 또는 삭제)
 - [ ] MechanicStudy에 UXFeedback / FailureDesign 항목 추가 검토

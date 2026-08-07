@@ -116,7 +116,7 @@ TIL은 분석 원문을 축약해서 대체하지 않습니다. 깊은 분석은
 GameAnalysis 템플릿 통일 진행 상황
 
 - [x] 템플릿 확정 (10단계, 핵심 자원 포함, 톤 `~한다`)
-- [ ] 배치 1 — SlayTheSpire, Portal2, Celeste, ReturnOfTheObraDinn
+- [x] 배치 1 — SlayTheSpire, Portal2, Celeste, ReturnOfTheObraDinn
 - [ ] 배치 2 — VampireSurvivors, HollowKnight, INSIDE
 - [ ] 배치 3 — PaperPlease, OuterWilds
 - [ ] 배치 4 — AmongUs, TheWitness, Factorio (구조는 있으나 내용 보강 및 핵심 자원 추가 필요)

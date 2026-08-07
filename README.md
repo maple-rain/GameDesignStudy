@@ -16,6 +16,9 @@
 - [INSIDE](./GameAnalysis/INSIDE.md)
 - [Slay the Spire](./GameAnalysis/SlayTheSpire.md)
 - [Return of the Obra Dinn](./GameAnalysis/ReturnOfTheObraDinn.md)
+- [Among Us](./GameAnalysis/AmongUs.md)
+- [The Witness](./GameAnalysis/TheWitness.md)
+- [Factorio](./GameAnalysis/Factorio.md)
 
 ### TIL
 날짜별 게임 기획 학습 기록

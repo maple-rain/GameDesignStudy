@@ -1,6 +1,6 @@
 # TIL - 게임 분해 (The Witness)
 
-> 분석 순서: 12 / 분석일:
+> 분석일: 2026-08-06 (분석 순서 12)
 > 관련 분석: [The Witness](../../GameAnalysis/TheWitness.md)
 
 ## 오늘의 게임

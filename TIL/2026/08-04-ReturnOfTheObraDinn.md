@@ -1,6 +1,6 @@
 # TIL - Return of the Obra Dinn 분석 : 추리와 정보 설계
 
-> 분석 순서: 9 / 분석일:
+> 분석일: 2026-08-04 (분석 순서 9)
 > 관련 분석: [Return of the Obra Dinn](../../GameAnalysis/ReturnOfTheObraDinn.md)
 
 ## 오늘의 목표

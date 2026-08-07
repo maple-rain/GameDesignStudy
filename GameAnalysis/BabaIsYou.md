@@ -1,6 +1,6 @@
 # Baba Is You 게임 분석
 
-> 분석 기록: [TIL - 규칙도 메커닉이 될 수 있을까?](../TIL/2026/10-BabaIsYou.md)
+> 분석 기록: [TIL - 규칙도 메커닉이 될 수 있을까?](../TIL/2026/08-04-BabaIsYou.md)
 > [Analysis Framework](../AnalysisFramework.md)의 통일 템플릿을 처음 적용한 기준 문서다.
 
 ## 1. 게임 개요

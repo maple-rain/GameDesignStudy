@@ -1,6 +1,6 @@
 # TIL - Outer Wilds : 모든 게임이 같은 방식으로 분석되지는 않는다
 
-> 분석 순서: 5 / 분석일:
+> 분석일: 2026-07-27 (분석 순서 5)
 > 관련 분석: [Outer Wilds](../../GameAnalysis/OuterWilds.md)
 
 ## 오늘의 게임

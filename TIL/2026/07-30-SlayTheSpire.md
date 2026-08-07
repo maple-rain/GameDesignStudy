@@ -1,6 +1,6 @@
 # TIL - Slay the Spire 분석과 시스템 중심 게임을 바라보는 시선
 
-> 분석 순서: 8 / 분석일:
+> 분석일: 2026-07-30 (분석 순서 8)
 > 관련 분석: [Slay the Spire](../../GameAnalysis/SlayTheSpire.md)
 
 ## 오늘의 목표

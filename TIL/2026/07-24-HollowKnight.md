@@ -1,6 +1,6 @@
 # TIL - Hollow Knight 게임 분해 및 개발 의도와 플레이 경험의 구분
 
-> 분석 순서: 4 / 분석일:
+> 분석일: 2026-07-24 (분석 순서 4)
 > 관련 분석: [Hollow Knight](../../GameAnalysis/HollowKnight.md)
 
 ## 오늘의 목표

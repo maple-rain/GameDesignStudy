@@ -1,6 +1,6 @@
 # TIL - Factorio를 통해 배운 분석 관점
 
-> 분석 순서: 11 / 분석일:
+> 분석일: 2026-08-06 (분석 순서 11)
 > 관련 분석: [Factorio](../../GameAnalysis/Factorio.md)
 
 ## 오늘의 주제

@@ -83,21 +83,23 @@ TIL은 분석 원문을 축약한 요약이 아닙니다.
 
 ## TIL
 
-| # | 게임 | 그날의 주제 |
+2026년 7월 21일부터 하루에 한 게임씩 분해했습니다. — [전체 목록](./TIL/README.md)
+
+| 날짜 | 게임 | 그날의 주제 |
 |---|---|---|
-| 1 | [Portal 2](./TIL/2026/01-Portal2.md) | 메커닉 간의 결합, 문제 체이닝 |
-| 2 | [Vampire Survivors](./TIL/2026/02-VampireSurvivors.md) | 보상 루프, 메커닉 언어화 훈련 |
-| 3 | [Celeste](./TIL/2026/03-Celeste.md) | 이동 기술을 자원으로 보기 |
-| 4 | [Hollow Knight](./TIL/2026/04-HollowKnight.md) | 개발 의도와 플레이 경험의 구분 |
-| 5 | [Outer Wilds](./TIL/2026/05-OuterWilds.md) | 모든 게임이 같은 방식으로 분석되지는 않는다 |
-| 6 | [Papers, Please](./TIL/2026/06-PapersPlease.md) | 메커닉과 재미 요소는 같은 것이 아니다 |
-| 7 | [INSIDE](./TIL/2026/07-INSIDE.md) | 분석 템플릿 정립, 반복 구조는 설계다 |
-| 8 | [Slay the Spire](./TIL/2026/08-SlayTheSpire.md) | 시스템 중심 게임, 핵심 자원의 발견 |
-| 9 | [Return of the Obra Dinn](./TIL/2026/09-ReturnOfTheObraDinn.md) | 정보 설계, 확신에 도달하는 과정 |
-| 10 | [Baba Is You](./TIL/2026/10-BabaIsYou.md) | 규칙도 메커닉이 될 수 있는가 |
-| 11 | [Factorio](./TIL/2026/11-Factorio.md) | 메커닉과 개발 의도의 층위 구분 |
-| 12 | [The Witness](./TIL/2026/12-TheWitness.md) | 규칙을 발견하게 만드는 설계 |
-| 13 | [Among Us](./TIL/2026/13-AmongUs.md) | 플레이어는 시스템을 최적화한다 |
+| 07-21 | [Portal 2](./TIL/2026/07-21-Portal2.md) | 메커닉 간의 결합, 문제 체이닝 |
+| 07-22 | [Vampire Survivors](./TIL/2026/07-22-VampireSurvivors.md) | 보상 루프, 메커닉 언어화 훈련 |
+| 07-23 | [Celeste](./TIL/2026/07-23-Celeste.md) | 이동 기술을 자원으로 보기 |
+| 07-24 | [Hollow Knight](./TIL/2026/07-24-HollowKnight.md) | 개발 의도와 플레이 경험의 구분 |
+| 07-27 | [Outer Wilds](./TIL/2026/07-27-OuterWilds.md) | 모든 게임이 같은 방식으로 분석되지는 않는다 |
+| 07-28 | [Papers, Please](./TIL/2026/07-28-PapersPlease.md) | 메커닉과 재미 요소는 같은 것이 아니다 |
+| 07-29 | [INSIDE](./TIL/2026/07-29-INSIDE.md) | 분석 템플릿 정립, 반복 구조는 설계다 |
+| 07-30 | [Slay the Spire](./TIL/2026/07-30-SlayTheSpire.md) | 시스템 중심 게임, 핵심 자원의 발견 |
+| 08-04 | [Return of the Obra Dinn](./TIL/2026/08-04-ReturnOfTheObraDinn.md) | 정보 설계, 확신에 도달하는 과정 |
+| 08-04 | [Baba Is You](./TIL/2026/08-04-BabaIsYou.md) | 규칙도 메커닉이 될 수 있는가 |
+| 08-06 | [Factorio](./TIL/2026/08-06-Factorio.md) | 메커닉과 개발 의도의 층위 구분 |
+| 08-06 | [The Witness](./TIL/2026/08-06-TheWitness.md) | 규칙을 발견하게 만드는 설계 |
+| 08-07 | [Among Us](./TIL/2026/08-07-AmongUs.md) | 플레이어는 시스템을 최적화한다 |
 
 ---
 
@@ -140,7 +142,6 @@ TIL은 분석 원문을 축약한 요약이 아닙니다.
 - [x] GameAnalysis 13개 문서를 10단계 템플릿으로 통일 (톤 `~한다`, 핵심 자원 포함)
 - [x] MechanicStudy에 FailureDesign / UXFeedback 추가
 - [x] 문서 성격을 결과물 / 학습 기록 2가지로 정리
-- [ ] TIL 각 문서의 `분석일` 채우기
-- [ ] TIL/2026/08-07.md 용도 결정 (초기 기록 유지 또는 삭제)
+- [x] TIL 파일명과 `분석일`을 실제 분석 날짜로 정리
 - [ ] Outer Wilds 직접 플레이 후 재분석
 - [ ] INSIDE 사운드 포함 재분석

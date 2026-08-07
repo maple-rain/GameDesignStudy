@@ -1,6 +1,6 @@
 # The Witness 게임 분석
 
-> 분석 기록: [TIL - 게임 분해 (The Witness)](../TIL/2026/12-TheWitness.md)
+> 분석 기록: [TIL - 게임 분해 (The Witness)](../TIL/2026/08-06-TheWitness.md)
 > 처음으로 "개발 의도가 잘 안 보인다"고 느낀 게임이며, 그 지점 자체가 이 게임의 핵심이었다.
 
 ## 1. 게임 개요

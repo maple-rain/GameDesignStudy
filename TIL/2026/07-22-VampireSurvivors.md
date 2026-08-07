@@ -1,6 +1,6 @@
 # TIL - Vampire Survivors 게임 분해 및 메커닉 언어화 훈련
 
-> 분석 순서: 2 / 분석일:
+> 분석일: 2026-07-22 (분석 순서 2)
 > 관련 분석: [Vampire Survivors](../../GameAnalysis/VampireSurvivors.md)
 
 ## 오늘의 목표

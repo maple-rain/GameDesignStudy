@@ -1,6 +1,6 @@
 # Return of the Obra Dinn 게임 분석
 
-> 분석 기록: [TIL - 추리와 정보 설계](../TIL/2026/09-ReturnOfTheObraDinn.md)
+> 분석 기록: [TIL - 추리와 정보 설계](../TIL/2026/08-04-ReturnOfTheObraDinn.md)
 
 ## 1. 게임 개요
 

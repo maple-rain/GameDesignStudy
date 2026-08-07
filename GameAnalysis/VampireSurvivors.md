@@ -1,6 +1,6 @@
 # Vampire Survivors 게임 분석
 
-> 분석 기록: [TIL - 게임 분해 및 메커닉 언어화 훈련](../TIL/2026/02-VampireSurvivors.md)
+> 분석 기록: [TIL - 게임 분해 및 메커닉 언어화 훈련](../TIL/2026/07-22-VampireSurvivors.md)
 > 메커닉 언어화 공식(`행동 → 규칙 → 결과 → 감정`)을 처음 적용한 게임이다.
 
 ## 1. 게임 개요

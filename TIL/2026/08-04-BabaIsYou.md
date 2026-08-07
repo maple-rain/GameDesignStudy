@@ -1,6 +1,6 @@
 # TIL - Baba Is You 분석 : 규칙도 메커닉이 될 수 있을까?
 
-> 분석 순서: 10 / 분석일:
+> 분석일: 2026-08-04 (분석 순서 10)
 > 관련 분석: [Baba Is You](../../GameAnalysis/BabaIsYou.md)
 
 ## 오늘의 게임

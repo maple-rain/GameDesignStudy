@@ -10,7 +10,7 @@
 | | 무엇을 |
 |---|---|
 | **만들었다** | 팀 프로젝트 5개 — 전부 팀장. 적 AI · UI · 맵 · 게임 흐름 |
-| **분석했다** | 게임 13개 · 설계 개념 5개 · 서비스와 경제 3개 |
+| **분석했다** | 게임 14개 · 설계 개념 5개 · 서비스와 경제 3개 |
 | **설계했다** | 기획서 3편 — 분석에서 얻은 원리를 적용 |
 
 2025년 2월부터 약 18개월간 이어온 작업이며,
@@ -28,7 +28,7 @@
 | 폴더 | 관점 | 내용 |
 |---|---|---|
 | [AnalysisFramework.md](./AnalysisFramework.md) | 방법 | 게임을 분해하는 절차와 언어 규칙 |
-| [GameAnalysis/](./GameAnalysis) | **메커닉** | 게임 하나를 10단계 템플릿으로 분석 — 13개 |
+| [GameAnalysis/](./GameAnalysis) | **메커닉** | 게임 하나를 10단계 템플릿으로 분석 — 14개 |
 | [MechanicStudy/](./MechanicStudy) | **개념** | 여러 게임에서 공통으로 나타난 설계 원리 — 5개 |
 | [SystemAnalysis/](./SystemAnalysis) | **서비스 · 경제** | 운영되는 게임의 시스템과 재화 구조 — 3개 |
 | [DesignDoc/](./DesignDoc) | **설계** | 직접 만든 기획 산출물 |
@@ -38,7 +38,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [ResearchLog.md](./ResearchLog.md) | 18개월간 분석 방법이 어떻게 바뀌었는가 |
-| [TIL/](./TIL) | 날짜별 학습 기록 13개 + [개념 목록과 판단이 바뀐 기록](./TIL/LearnedConcepts.md) |
+| [TIL/](./TIL) | 날짜별 학습 기록 14개 + [개념 목록과 판단이 바뀐 기록](./TIL/LearnedConcepts.md) |
 
 ```
 GameDesignStudy
@@ -161,6 +161,7 @@ Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, �
 | [Factorio](./GameAnalysis/Factorio.md) | 처리량 | 자원을 유량으로 설계한 사례 |
 | [The Witness](./GameAnalysis/TheWitness.md) | 규칙에 대한 가설 | 튜토리얼을 퍼즐로 위장 |
 | [Among Us](./GameAnalysis/AmongUs.md) | 신뢰 | 메타 분석, 자원의 소유자 |
+| [Disco Elysium](./GameAnalysis/DiscoElysium.md) | 스킬 포인트 (들리는 목소리) | 자원 배분이 인격을 만드는 구조 |
 
 ## MechanicStudy — 개념 연구
 
@@ -212,7 +213,7 @@ Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, �
 
 ## 진행 상황
 
-- [x] GameAnalysis 13개 문서를 10단계 템플릿으로 통일
+- [x] GameAnalysis 13개 문서를 10단계 템플릿으로 통일 (이후 Disco Elysium 추가로 14개)
 - [x] MechanicStudy 5개 개념 문서 작성
 - [x] SystemAnalysis 3개 문서화 (로스트아크 예측 검증 포함)
 - [x] DesignDoc — NPC 컨셉 문서화

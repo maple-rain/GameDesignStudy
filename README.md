@@ -73,15 +73,19 @@ GameDesignStudy
 
 ### 팀 프로젝트
 
-2024년 4월부터 8월까지 다섯 개의 팀 프로젝트에 참여했고, 그중 세 번은 팀장을 맡았다.
+2024년 4월부터 8월까지 다섯 개의 팀 프로젝트를 진행했고, **전부 팀장을 맡았다.**
 
 | 프로젝트 | 성격 | 내가 맡은 것 | 내 커밋 | 기간 |
 |---|---|---|---|---|
-| **[NGCC](https://github.com/maple-rain/NGCC/tree/sourceCode)** | **Unity 최종 프로젝트** (4인) | — | **62 / 320** | 2024-07 ~ 08 (7주) |
-| IsekaiCoding | Unity 연애 시뮬레이션 (5인) | **팀장 · 맵** | 25 / 147 | 2024-06-19 ~ 26 |
-| [HellChangRun](https://github.com/maple-rain/HellChangRun) | Unity 3D 러너 액션 (4인) | **팀장 · 적 시스템** | 16 / 86 | 2024-06-03 ~ 11 |
-| [Chapter-3-TeamProject](https://github.com/Chapter-3-Project-B6/Chapter-3-TeamProject) | Unity 탄막 슈팅 `Dodge Survivor` (4인) | 시작 씬 · 엔드 패널 · 타이머 · 최고점수 | 21 / 83 | 2024-05-16 ~ 23 |
+| **[NGCC](https://github.com/maple-rain/NGCC/tree/sourceCode)** | **로그라이트 액션** — 리스크 오브 레인 계열 (4인) | **팀장 · UI** | **62 / 320** | 2024-07 ~ 08 (7주) |
+| IsekaiCoding | 연애 시뮬레이션 (5인) | **팀장 · 맵** | 25 / 147 | 2024-06-19 ~ 26 |
+| [HellChangRun](https://github.com/maple-rain/HellChangRun) | 3D 러너 액션 (4인) | **팀장 · 적 시스템** | 16 / 86 | 2024-06-03 ~ 11 |
+| [Chapter-3-TeamProject](https://github.com/Chapter-3-Project-B6/Chapter-3-TeamProject) | 탄막 슈팅 `Dodge Survivor` (4인) | **팀장** · 시작 씬 · 엔드 패널 · 타이머 · 최고점수 | 21 / 83 | 2024-05-16 ~ 23 |
 | [B04Project](https://github.com/Sissikim/B04Project) | C# 콘솔 턴제 TRPG (4인) | **팀장** · 경험치/레벨업 · 브랜치 통합 | 16 / 58 | 2024-04-30 ~ 05-07 |
+
+**다섯 번 모두 팀장이었고, 맡은 파트는 매번 달랐다.**
+콘솔 로직 → 게임 흐름/UI → 적 AI → 맵 → UI 설계로 옮겨 다녔으므로,
+한 파트를 깊게 판 것이 아니라 **프로젝트마다 비어 있는 자리를 맡았다.**
 
 > NGCC는 작업이 `sourceCode` 브랜치에 있다. `main`에는 초기 커밋만 있으므로 위 링크로 들어가야 한다.
 > IsekaiCoding은 저장소가 비공개라 링크를 걸지 않았다.
@@ -104,18 +108,30 @@ Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, �
 | [4WProject](https://github.com/maple-rain/4WProject) | C# 과제 | 2024-05 |
 | [SpartaTrpg](https://github.com/maple-rain/SpartaTrpg) | 콘솔 TRPG | 2024-04 |
 
-### 적을 만든 경험이 적을 설계하는 일로 이어졌다
+### 만들면서 생긴 질문이 분석의 출발점이었다
 
-HellChangRun에서 맡은 것은 적 시스템 전체였다. 추격 거리, 투척 간격, 접촉 판정을 직접 짰다.
+만들 때 답하지 못했던 질문 두 개를, 2년 뒤에 분석 쪽에서 다시 만났다.
+
+| 구현 (2024) | 그때의 질문 | 분석에서 얻은 답 (2026) |
+|---|---|---|
+| **적 AI** — 추격 거리, 투척 간격, 접촉 판정 | 얼마나 위협적이어야 적당한가 | 실패 비용과 원인 가독성은 한 쌍으로 설계한다 → [Failure Design](./MechanicStudy/FailureDesign.md) |
+| **UI** — 체력 · 경험치 · 스킬 쿨다운 | 무엇을 어디에 보여줘야 하는가 | 정보는 **플레이어의 시선이 이미 가 있는 곳**에 둔다 → [UX Feedback](./MechanicStudy/UXFeedback.md) |
+
+당시 구현을 지금의 분석 언어로 다시 정리한 문서를 각 저장소에 남겼다.
+
+| 문서 | 프로젝트 |
+|---|---|
+| [적 시스템 설계](https://github.com/maple-rain/HellChangRun/blob/main/docs/EnemyDesign.md) | HellChangRun |
+| [UI 설계](https://github.com/maple-rain/NGCC/blob/main/docs/UIDesign.md) | NGCC |
+
+그리고 그 원리로 게임을 하나 설계했다.
 
 ```
-2024-06   HellChangRun — 적 AI를 구현했다 (추격 · 투척 예고 · 두 위협의 무게 차이)
-2026-08   (가제) 보호색 — 동물의 은신과 도주를 설계했다 (서식지 · 도주 경로 · 재발견)
+2024-06   적 AI를 구현했다            추격 · 투척 예고 · 두 위협의 무게 차이
+2026-08   동물의 은신과 도주를 설계했다   서식지 · 도주 경로 · 재발견 난이도
 ```
 
 **같은 대상을 구현자 시점에서 설계자 시점으로 옮긴 기록이다.**
-당시 구현을 이 저장소의 분석 언어로 다시 정리한 문서를
-[HellChangRun/docs/EnemyDesign.md](https://github.com/maple-rain/HellChangRun/blob/main/docs/EnemyDesign.md)에 남겼다.
 
 ---
 

@@ -1,7 +1,7 @@
 # TIL - Papers, Please 게임 분해 및 재미와 메커닉의 관계 분석
 
 > 분석일: 2026-07-28 (분석 순서 6)
-> 관련 분석: [Paper, Please](../../GameAnalysis/PaperPlease.md)
+> 관련 분석: [Papers, Please](../../GameAnalysis/PaperPlease.md)
 
 ## 오늘의 목표
 

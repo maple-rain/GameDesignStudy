@@ -75,7 +75,7 @@ GameDesignStudy
 | [Celeste](./GameAnalysis/Celeste.md) | 대시와 스태미너 | 이동 기술의 자원화 |
 | [Hollow Knight](./GameAnalysis/HollowKnight.md) | 소울 | 메트로배니아, 불편함이 메커닉인 사례 |
 | [Outer Wilds](./GameAnalysis/OuterWilds.md) | 지식 + 루프당 시간 | 소모 자원과 축적 자원의 분리 |
-| [Paper, Please](./GameAnalysis/PaperPlease.md) | 시간 | 서로를 잡아먹는 두 자원 |
+| [Papers, Please](./GameAnalysis/PaperPlease.md) | 시간 | 서로를 잡아먹는 두 자원 |
 | [INSIDE](./GameAnalysis/INSIDE.md) | 위험에 대한 사전 정보 | 설명 없는 학습, 실패 비용 설계 |
 | [Slay the Spire](./GameAnalysis/SlayTheSpire.md) | 에너지·드로우·체력·골드 | 덱 순환, 시스템 중심 게임 |
 | [Return of the Obra Dinn](./GameAnalysis/ReturnOfTheObraDinn.md) | 정보 (연결 대상) | 처벌 없이 신중함을 만드는 구조 |

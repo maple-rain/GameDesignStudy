@@ -106,7 +106,7 @@ Baba Is You는 `문제 인식 → 문제의 전제 발견 → 전제 해체 → 
 
 각 답이 즉시 다음 질문을 만든다. (→ [Problem Chaining](../MechanicStudy/ProblemChaining.md))
 
-## 8. 제거 / 변경 분석
+## 8. 제거/변경 분석
 
 이 게임은 **제거 테스트가 통하지 않는 사례**다.
 

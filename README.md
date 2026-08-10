@@ -73,14 +73,28 @@ GameDesignStudy
 
 ### 팀 프로젝트
 
+2024년 4월부터 8월까지 다섯 개의 팀 프로젝트에 참여했고, 그중 세 번은 팀장을 맡았다.
+
 | 프로젝트 | 성격 | 내가 맡은 것 | 내 커밋 | 기간 |
 |---|---|---|---|---|
-| **[HellChangRun](https://github.com/maple-rain/HellChangRun)** | Unity 3D 러너 액션 | **팀장 · 적 시스템** | 16 / 86 | 2024-06 |
-| [Chapter-3-TeamProject](https://github.com/Chapter-3-Project-B6/Chapter-3-TeamProject) | Unity 탄막 슈팅 `Dodge Survivor` | 시작 씬 · 엔드 패널 · 타이머 · 최고점수 | 21 / 83 | 2024-05 |
-| [B04Project](https://github.com/Sissikim/B04Project) | C# 콘솔 턴제 TRPG | **팀장** · 경험치/레벨업 · 브랜치 통합 | 16 / 58 | 2024-04 ~ 05 |
+| **[NGCC](https://github.com/maple-rain/NGCC/tree/sourceCode)** | **Unity 최종 프로젝트** (4인) | — | **62 / 320** | 2024-07 ~ 08 (7주) |
+| IsekaiCoding | Unity 연애 시뮬레이션 (5인) | **팀장 · 맵** | 25 / 147 | 2024-06-19 ~ 26 |
+| [HellChangRun](https://github.com/maple-rain/HellChangRun) | Unity 3D 러너 액션 (4인) | **팀장 · 적 시스템** | 16 / 86 | 2024-06-03 ~ 11 |
+| [Chapter-3-TeamProject](https://github.com/Chapter-3-Project-B6/Chapter-3-TeamProject) | Unity 탄막 슈팅 `Dodge Survivor` (4인) | 시작 씬 · 엔드 패널 · 타이머 · 최고점수 | 21 / 83 | 2024-05-16 ~ 23 |
+| [B04Project](https://github.com/Sissikim/B04Project) | C# 콘솔 턴제 TRPG (4인) | **팀장** · 경험치/레벨업 · 브랜치 통합 | 16 / 58 | 2024-04-30 ~ 05-07 |
 
-세 프로젝트 모두 4인 팀이며, 역할을 나누고 **기능 단위로 브랜치를 파서 머지**하는 방식으로 진행했다.
-(`PJS-feature-StartScene`, `PJS-feature-timer`, `Dev_1Seo` 등)
+> NGCC는 작업이 `sourceCode` 브랜치에 있다. `main`에는 초기 커밋만 있으므로 위 링크로 들어가야 한다.
+> IsekaiCoding은 저장소가 비공개라 링크를 걸지 않았다.
+
+모든 프로젝트에서 **기능 단위로 브랜치를 파고 서로의 브랜치를 머지**하는 방식으로 진행했다.
+
+```
+Dev_PJS      Dev_AJS      Dev_BSC      Dev_CCI      Dev_THJ     (IsekaiCoding, 5인)
+PJS-feature-StartScene    PJS-feature-timer    PJS-feature-endpanel
+Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, 통합 담당)
+```
+
+한 주짜리 과제부터 7주 최종 프로젝트까지, **팀 규모와 기간이 단계적으로 커졌다.**
 
 ### 개인 과제
 

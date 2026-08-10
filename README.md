@@ -55,7 +55,7 @@ GameDesignStudy
 |---|---|---|
 | [로스트아크 재련 SWOT](./SystemAnalysis/LostArk_Refining_SWOT.md) | 2025-02 ~ 05 | 비용은 14~15배 증가하는데 딜증은 1.15~1.4%로 고정. **10개월 뒤 실제 패치와 대조 검증 포함** |
 | [젠레스 존 제로 성장 곡선](./SystemAnalysis/ZZZ_GrowthCurve.md) | 2026-01 | 이 게임은 플레이 시간이 아니라 **경과 일수로 성장을 통제**한다. 59→60레벨에 70일 |
-| [마비노기 모바일 재화 구조](./SystemAnalysis/Mabinogi_CurrencyMap.md) | 2025-11 ~ 2026-01 | 재화 1,000행 전수 조사. 개인 경제(골드)와 유저간 경제(데카)의 분리 구조 |
+| [마비노기 모바일 재화 구조와 가격 설계](./SystemAnalysis/Mabinogi_CurrencyMap.md) | 2025-11 ~ 2026-01 | 재화 1,000행 전수 조사. **모든 패키지의 판매가가 거래 재화 값과 정확히 일치** — 성장 아이템은 전부 덤. 월 최대 과금액 226만원 |
 
 ## DesignDoc — 설계 산출물
 
@@ -136,8 +136,9 @@ GameDesignStudy
 - [x] SystemAnalysis 3개 문서화 (로스트아크 예측 검증 포함)
 - [x] DesignDoc — NPC 컨셉 문서화
 - [x] Research Log 작성
-- [ ] 마비노기 골드 일일 수급 측정 → 하루의 현금 가치 산출
+- [x] 마비노기 유료 상품 가격 설계 분석 완결
+- [x] NPC 문서 QA 수정 (Ver1.02)
+- [ ] 마비노기 무과금 관점 — 골드 일일 수급 측정
 - [ ] 젠레스 데니(재화) 축 완성
-- [ ] NPC 문서 QA 수정 4건
 - [ ] 자체 게임 기획서 (슬라임 게임)
 - [ ] Outer Wilds · INSIDE 직접 플레이 후 재분석

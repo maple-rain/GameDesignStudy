@@ -67,6 +67,43 @@ GameDesignStudy
 | [엘더펜 마을 NPC 컨셉](./DesignDoc/NPC_Elderfen.md) | 2025-06 ~ 11 | NPC 14명 (기능 8 / 장식 6). 관계망 설계. **[발표자료 PDF](./DesignDoc/pdf/NPC_Elderfen_Ver1.03.pdf)** 포함 |
 | [(가제) 슬라임](./DesignDoc/Slime_Concept.md) | 2026-08 | 구상 단계 메모. 벽·천장 부착이 핵심 메커닉이며, 설명 없는 튜토리얼 배치만 확정됨 |
 
+## 만든 것 — 다른 저장소
+
+분석과 별개로 실제 개발에 참여한 기록이다.
+
+| 저장소 | 성격 | 내가 맡은 것 | 시기 |
+|---|---|---|---|
+| **[HellChangRun](https://github.com/maple-rain/HellChangRun)** | **4인 팀 프로젝트** — 3D 러너 액션 (Unity) | **팀장 · 적 시스템 전체** | 2024-05 ~ 06 |
+| [Survivor3D](https://github.com/maple-rain/Survivor3D) | 개인 과제 — 1인칭 이동 · 인벤토리 · 아이템 | 전체 | 2024-05 |
+| [4WProject](https://github.com/maple-rain/4WProject) | 개인 과제 (C#) | 전체 | 2024-05 |
+| [SpartaTrpg](https://github.com/maple-rain/SpartaTrpg) | 콘솔 TRPG (C#) | 전체 | 2024-04 |
+
+> 이 외에도 참여한 팀 프로젝트가 있으나, 저장소 소유자가 내가 아니어서 현재 접근할 수 없다.
+
+### HellChangRun — 적을 만든 경험이 적을 설계하는 일로 이어졌다
+
+4명이 9일 동안 86커밋으로 만든 프로젝트다. 역할은 처음부터 나눴다.
+
+| 담당 | 이름 |
+|---|---|
+| **적 시스템 · 팀장** | **박준서** |
+| 플레이어 | 유승현 |
+| 인벤토리 | 권용수 |
+| 맵 | 윤규석 |
+
+이 저장소의 분석은 그 뒤에 시작한 것이고, 지금은 방향이 반대로 돌아왔다.
+
+```
+2024-05   HellChangRun — 적 AI를 구현했다 (추격 · 투척 · 접촉 판정)
+2026-08   (가제) 보호색 — 동물의 은신과 도주를 설계했다 (서식지 · 도주 경로 · 재발견)
+```
+
+**같은 대상을 구현자 시점에서 설계자 시점으로 옮긴 기록이다.**
+적 AI의 설계 의도를 이 저장소의 분석 언어로 다시 정리한 문서는
+[HellChangRun의 적 시스템 설계 문서](https://github.com/maple-rain/HellChangRun/blob/main/docs/EnemyDesign.md)에 있다.
+
+---
+
 ## GameAnalysis — 메커닉
 
 | 게임 | 핵심 자원 | 특징 |

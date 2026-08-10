@@ -69,38 +69,39 @@ GameDesignStudy
 
 ## 만든 것 — 다른 저장소
 
-분석과 별개로 실제 개발에 참여한 기록이다.
+분석을 시작하기 전에 만든 것들이다. 팀 프로젝트 3개, 개인 과제 3개.
 
-| 저장소 | 성격 | 내가 맡은 것 | 시기 |
-|---|---|---|---|
-| **[HellChangRun](https://github.com/maple-rain/HellChangRun)** | **4인 팀 프로젝트** — 3D 러너 액션 (Unity) | **팀장 · 적 시스템 전체** | 2024-05 ~ 06 |
-| [Survivor3D](https://github.com/maple-rain/Survivor3D) | 개인 과제 — 1인칭 이동 · 인벤토리 · 아이템 | 전체 | 2024-05 |
-| [4WProject](https://github.com/maple-rain/4WProject) | 개인 과제 (C#) | 전체 | 2024-05 |
-| [SpartaTrpg](https://github.com/maple-rain/SpartaTrpg) | 콘솔 TRPG (C#) | 전체 | 2024-04 |
+### 팀 프로젝트
 
-> 이 외에도 참여한 팀 프로젝트가 있으나, 저장소 소유자가 내가 아니어서 현재 접근할 수 없다.
+| 프로젝트 | 성격 | 내가 맡은 것 | 내 커밋 | 기간 |
+|---|---|---|---|---|
+| **[HellChangRun](https://github.com/maple-rain/HellChangRun)** | Unity 3D 러너 액션 | **팀장 · 적 시스템** | 16 / 86 | 2024-06 |
+| [Chapter-3-TeamProject](https://github.com/Chapter-3-Project-B6/Chapter-3-TeamProject) | Unity 탄막 슈팅 `Dodge Survivor` | 시작 씬 · 엔드 패널 · 타이머 · 최고점수 | 21 / 83 | 2024-05 |
+| [B04Project](https://github.com/Sissikim/B04Project) | C# 콘솔 턴제 TRPG | **팀장** · 경험치/레벨업 · 브랜치 통합 | 16 / 58 | 2024-04 ~ 05 |
 
-### HellChangRun — 적을 만든 경험이 적을 설계하는 일로 이어졌다
+세 프로젝트 모두 4인 팀이며, 역할을 나누고 **기능 단위로 브랜치를 파서 머지**하는 방식으로 진행했다.
+(`PJS-feature-StartScene`, `PJS-feature-timer`, `Dev_1Seo` 등)
 
-4명이 9일 동안 86커밋으로 만든 프로젝트다. 역할은 처음부터 나눴다.
+### 개인 과제
 
-| 담당 | 이름 |
-|---|---|
-| **적 시스템 · 팀장** | **박준서** |
-| 플레이어 | 유승현 |
-| 인벤토리 | 권용수 |
-| 맵 | 윤규석 |
+| 저장소 | 내용 | 시기 |
+|---|---|---|
+| [Survivor3D](https://github.com/maple-rain/Survivor3D) | 1인칭 이동 · 인벤토리 · ScriptableObject 아이템 | 2024-05 |
+| [4WProject](https://github.com/maple-rain/4WProject) | C# 과제 | 2024-05 |
+| [SpartaTrpg](https://github.com/maple-rain/SpartaTrpg) | 콘솔 TRPG | 2024-04 |
 
-이 저장소의 분석은 그 뒤에 시작한 것이고, 지금은 방향이 반대로 돌아왔다.
+### 적을 만든 경험이 적을 설계하는 일로 이어졌다
+
+HellChangRun에서 맡은 것은 적 시스템 전체였다. 추격 거리, 투척 간격, 접촉 판정을 직접 짰다.
 
 ```
-2024-05   HellChangRun — 적 AI를 구현했다 (추격 · 투척 · 접촉 판정)
+2024-06   HellChangRun — 적 AI를 구현했다 (추격 · 투척 예고 · 두 위협의 무게 차이)
 2026-08   (가제) 보호색 — 동물의 은신과 도주를 설계했다 (서식지 · 도주 경로 · 재발견)
 ```
 
 **같은 대상을 구현자 시점에서 설계자 시점으로 옮긴 기록이다.**
-적 AI의 설계 의도를 이 저장소의 분석 언어로 다시 정리한 문서는
-[HellChangRun의 적 시스템 설계 문서](https://github.com/maple-rain/HellChangRun/blob/main/docs/EnemyDesign.md)에 있다.
+당시 구현을 이 저장소의 분석 언어로 다시 정리한 문서를
+[HellChangRun/docs/EnemyDesign.md](https://github.com/maple-rain/HellChangRun/blob/main/docs/EnemyDesign.md)에 남겼다.
 
 ---
 

@@ -86,7 +86,7 @@ GameDesignStudy
 
 | 프로젝트 | 성격 | 내가 맡은 것 | 내 커밋 | 기간 |
 |---|---|---|---|---|
-| **[NGCC](https://github.com/maple-rain/NGCC/tree/sourceCode)** | **로그라이트 액션** — 리스크 오브 레인 계열 (4인) | **팀장 · UI** | **62 / 320** | 2024-07 ~ 08 (7주) |
+| **[NGCC](https://github.com/maple-rain/NGCC)** | **로그라이트 액션** — 리스크 오브 레인 계열 (4인) | **팀장 · UI** | **62 / 320** | 2024-07 ~ 08 (7주) |
 | IsekaiCoding | 연애 시뮬레이션 (5인) | **팀장 · 맵** | 25 / 147 | 2024-06-19 ~ 26 |
 | [HellChangRun](https://github.com/maple-rain/HellChangRun) | 3D 러너 액션 (4인) | **팀장 · 적 시스템** | 16 / 86 | 2024-06-03 ~ 11 |
 | [Chapter-3-TeamProject](https://github.com/Chapter-3-Project-B6/Chapter-3-TeamProject) | 탄막 슈팅 `Dodge Survivor` (4인) | **팀장** · 시작 씬 · 엔드 패널 · 타이머 · 최고점수 | 21 / 83 | 2024-05-16 ~ 23 |
@@ -96,8 +96,7 @@ GameDesignStudy
 콘솔 로직 → 게임 흐름/UI → 적 AI → 맵 → UI 설계로 옮겨 다녔으므로,
 한 파트를 깊게 판 것이 아니라 **프로젝트마다 비어 있는 자리를 맡았다.**
 
-> NGCC는 작업이 `sourceCode` 브랜치에 있다. `main`에는 초기 커밋만 있으므로 위 링크로 들어가야 한다.
-> IsekaiCoding은 저장소가 비공개라 링크를 걸지 않았다.
+> IsekaiCoding은 저장소 소유자가 내가 아니고 비공개로 전환되어 링크를 걸 수 없다.
 
 모든 프로젝트에서 **기능 단위로 브랜치를 파고 서로의 브랜치를 머지**하는 방식으로 진행했다.
 

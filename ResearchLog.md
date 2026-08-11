@@ -15,7 +15,7 @@
 | 2025-06 ~ 11 | [엘더펜 마을 NPC 컨셉](./DesignDoc/NPC_Elderfen.md) | 9개 버전, NPC 14명 | 관계 설계, 설정이 기능을 정당화하는 구조 |
 | 2025-11 ~ 2026-01 | [마비노기 모바일 재화 구조](./SystemAnalysis/Mabinogi_CurrencyMap.md) | 7시트 1,000행+ | **재고** — 카탈로그를 전수 조사하는 방법 |
 | 2026-01 | [젠레스 존 제로 성장 곡선](./SystemAnalysis/ZZZ_GrowthCurve.md) | 4시트 + 차트 | **유량** — 획득 속도를 측정하는 방법 |
-| 2026-07 ~ 08 | [게임 분해 14종](./GameAnalysis) | 분석 14개 + [개념 연구 5개](./MechanicStudy) | 메커닉 분석 프레임워크 정립 |
+| 2026-07 ~ 08 | [게임 분해 15종](./GameAnalysis) | 분석 15개 + [개념 연구 6개](./MechanicStudy) | 메커닉 분석 프레임워크 정립 |
 
 ---
 
@@ -261,7 +261,7 @@ Slay the Spire는 직접 플레이 없이 공략에 의존했다.
 |---|---|
 | 마비노기 무과금 관점 (골드 일일 수급) | 미완 — 설계는 끝났고 인게임 측정만 남음. **과금 설계 분석은 완결** |
 | 젠레스 데니(재화) 축 | 미완 — 경험치 축은 완성 |
-| 직접 플레이 기반 분석 | 14개 중 6개가 영상·자료 기반 (Hollow Knight는 중도 중단) |
+| 직접 플레이 기반 분석 | 15개 중 7개가 영상·자료 기반 (Hollow Knight는 중도 중단, Hades는 전부 자료 기반) |
 | 기획서 수치 검증 | v0.2. 적개심 문제는 **먹이**로 해결. 남은 것은 색 지속 시간과 문어 저지 강도 |
 | 구현 | Unity 적 개발 진행 중. 기획서와 아직 연결되지 않음 |
 
@@ -275,7 +275,7 @@ Slay the Spire는 직접 플레이 없이 공략에 의존했다.
 | 관점 | 문서 |
 |---|---|
 | 메커닉을 어떻게 분석하는가 | [Analysis Framework](./AnalysisFramework.md) |
-| 게임 하나를 어떻게 분해했는가 | [GameAnalysis](./GameAnalysis) — 14개 |
+| 게임 하나를 어떻게 분해했는가 | [GameAnalysis](./GameAnalysis) — 15개 |
 | 게임을 관통하는 개념 | [MechanicStudy](./MechanicStudy) — 5개 |
 | 서비스와 경제를 어떻게 보는가 | [SystemAnalysis](./SystemAnalysis) — 3개 |
 | 직접 설계한 것 | [DesignDoc](./DesignDoc) |

@@ -76,16 +76,60 @@ python dnf_collect.py
 
 `data/soul_YYYYMM.csv` 에 한 줄씩 추가된다.
 
-### 5. 매일 자동 실행 (선택)
+### 5. 자동 수집
 
-Windows 작업 스케줄러에 등록한다.
+**주 수집기는 GitHub Actions다.** 워크플로는 [`.github/workflows/dnf-collect.yml`](../../.github/workflows/dnf-collect.yml).
+
+PC를 켜 두는 것에 의존하지 않기 위해서다.
+API는 최근 100건까지만 주기 때문에, 꺼져 있던 동안 체결된 건은 다음에 켜도 이미 밀려나 있다.
+**놓친 구간은 나중에 채울 수 없다.**
+
+| | 로컬 작업 스케줄러 | GitHub Actions |
+|---|---|---|
+| PC가 꺼져 있으면 | **못 돈다** | 돈다 |
+| 시각 정확도 | 정확 | 수 분 ~ 수십 분 밀릴 수 있다 |
+| 결과 | 로컬 CSV | 저장소에 자동 커밋 |
+
+두 수집기가 같은 파일을 건드리면 git에서 매번 충돌하므로 **파일명을 나눴다.**
 
 ```
-프로그램      python
+로컬   data/soul_YYYYMM.csv        .gitignore 처리. 백업용
+CI     data/soul_YYYYMM_ci.csv     저장소에 커밋되는 본 자료
+```
+
+#### 키 등록
+
+저장소 `Settings` → `Secrets and variables` → `Actions` → `New repository secret`
+
+```
+Name    DNF_API_KEY
+Secret  발급받은 키
+```
+
+**키는 저장소 파일에 절대 넣지 않는다.** 스크립트는 환경변수 `DNF_API_KEY`를 먼저 보고,
+없을 때만 로컬 `apikey.txt`를 읽는다.
+
+#### 첫 실행 확인
+
+`Actions` 탭 → `DNF 시세 수집` → `Run workflow` 로 수동 실행해 본다.
+성공하면 `data/soul_YYYYMM_ci.csv` 가 커밋된다.
+
+> 공개 저장소의 예약 워크플로는 **60일간 저장소에 활동이 없으면 자동으로 중지된다.**
+> 이 수집기는 스스로 커밋을 남기므로 해당되지 않지만, 저장소를 오래 방치할 때는 확인이 필요하다.
+
+#### 로컬 병행 (선택)
+
+Windows 작업 스케줄러에 함께 등록해 두면 백업이 된다.
+
+```
+프로그램      pythonw
 인수          "<이 폴더>\dnf_collect.py"
 시작 위치     <이 폴더>
-트리거        매일 오전 9시 / 오후 9시   (하루 2회 권장)
+트리거        2시간마다 반복
+설정          "예약 시작 시간을 놓친 경우 가능한 대로 작업 시작" 을 켤 것
 ```
+
+마지막 줄을 켜지 않으면 **PC가 꺼져 있던 동안의 실행은 그냥 건너뛴다.**
 
 ---
 

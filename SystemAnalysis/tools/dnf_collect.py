@@ -46,8 +46,16 @@ KST = timezone(timedelta(hours=9))
 
 
 def load_key():
+    """환경변수 DNF_API_KEY 를 먼저 보고, 없으면 apikey.txt 를 읽는다.
+
+    GitHub Actions에서는 Secrets가 환경변수로 들어오므로 파일이 필요 없다.
+    로컬에서는 기존처럼 apikey.txt 를 쓴다.
+    """
+    key = os.environ.get("DNF_API_KEY", "").strip()
+    if key:
+        return key
     if not os.path.exists(KEY_FILE):
-        sys.exit(f"apikey.txt 가 없다. {KEY_FILE} 에 키를 한 줄로 넣을 것.")
+        sys.exit(f"키가 없다. 환경변수 DNF_API_KEY 를 넣거나 {KEY_FILE} 에 한 줄로 적을 것.")
     key = open(KEY_FILE, encoding="utf-8").read().strip()
     if not key:
         sys.exit("apikey.txt 가 비어 있다.")
@@ -165,7 +173,11 @@ def main():
         return
 
     os.makedirs(DATA_DIR, exist_ok=True)
-    out = os.path.join(DATA_DIR, f"soul_{datetime.now(KST):%Y%m}.csv")
+
+    # 수집 주체를 파일명으로 나눈다. 로컬과 CI가 같은 파일을 건드리면
+    # git에서 매번 충돌이 나기 때문이다. CI는 DNF_COLLECT_TAG=_ci 로 돈다.
+    tag = os.environ.get("DNF_COLLECT_TAG", "")
+    out = os.path.join(DATA_DIR, f"soul_{datetime.now(KST):%Y%m}{tag}.csv")
     new = not os.path.exists(out)
 
     with open(out, "a", encoding="utf-8-sig", newline="") as fh:

@@ -233,3 +233,19 @@ Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, �
 - [ ] 젠레스 데니(재화) 축 완성
 - [ ] 젠레스 우두머리 섬멸전 반복 주기 확정 (재고/유량 분류가 결론을 바꾼다)
 - [ ] Outer Wilds · INSIDE 직접 플레이 후 재분석
+
+---
+
+## 데이터 출처
+
+<a href="https://developers.neople.co.kr" target="_blank">
+<img src="./SystemAnalysis/images/neople-openapi.png" alt="Neople 오픈 API" />
+</a>
+
+[던전앤파이터 소울 시세 분석](./SystemAnalysis/DNF_Soul_Market.md)과 [수집 도구](./SystemAnalysis/tools)는
+**네오플 오픈 API 서비스**를 이용합니다. 결과 데이터의 저작권 등 제반 권리는 ㈜네오플 또는 제3자에게 있습니다.
+
+개인 학습·분석 목적이며 어떠한 대가도 받지 않습니다.
+[FAQ](https://developers.neople.co.kr/contents/faq?category=3)가 허용 범위로 명시한 `캐시 형태의 수집 및 재가공`에 맞춰
+개별 체결 기록은 저장하지 않고 집계값만 남깁니다.
+조항별 준수 사항은 [tools/README](./SystemAnalysis/tools)에 정리했습니다.

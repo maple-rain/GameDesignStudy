@@ -36,11 +36,19 @@ jobs:
             exit 1
           fi
 
-      - name: 수집
+      - name: 수집 — 소울 결정 5종
         env:
           DNF_API_KEY: ${{ secrets.DNF_API_KEY }}
           DNF_COLLECT_TAG: "_ci"
         run: python SystemAnalysis/tools/dnf_collect.py
+
+      # 트로피컬 바캉스 패키지는 2026-08-27 점검 전까지만 판매된다.
+      # 종료가 다가올 때의 시세는 지금 재지 않으면 복원할 수 없다.
+      - name: 수집 — 트로피컬 바캉스 패키지 99종
+        env:
+          DNF_API_KEY: ${{ secrets.DNF_API_KEY }}
+          DNF_COLLECT_TAG: "_ci"
+        run: python SystemAnalysis/tools/dnf_collect_pkg.py
 
       - name: 커밋
         run: |

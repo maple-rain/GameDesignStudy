@@ -7,9 +7,11 @@
   삭제된 뒤에는 경매장 조회가 되지 않을 수 있으므로 그 구간은 지금 아니면 못 잰다.
 
 무엇을 재는가
-  주 수집기 133종 중 종료 전후 판단에 쓰이는 19종만 고른다.
-  삭제 대상 12종, 존속 대상 5종, 만기가 다른 대조군 2종.
-  전량을 15분마다 받으면 API 부담이 커서 대상을 좁혔다.
+  주 수집기 133종 중 종료 전후 판단에 쓰이는 33종만 고른다.
+  삭제 대상 12종, 존속 대상 5종, 만기가 다른 대조군 2종,
+  세트별 9부위 합계를 내기 위한 아바타 개별 부위 14종.
+  전량을 짧은 주기로 받으면 API 부담이 커서 대상을 좁혔다.
+  약관 제5조 제8항이 주기적·지속적 접속으로 인한 과부하를 금지한다.
 
 사용법
   python dnf_collect_final.py                      1회 수집
@@ -71,20 +73,50 @@ CONTROL = [
     "황홀한 여름밤 바캉스 칭호 선택 상자",     # 기간 무제한
 ]
 
-WANTED = {label: group for group, labels in
+# 아바타 개별 부위 — 세트별 9부위 합계를 종료 순간에 재기 위한 A타입 14종.
+#
+# 풀세트 상자(교환가능)는 8/27 06시 삭제되지만, 개봉해서 나온 아바타 9부위는
+# 교환가능 · 기간 무제한이라 남는다. 즉 개별 부위가 종료 후 시장에 남는
+# 유일한 아바타 형태다. 상자가 사라지고 부위가 남는 순간을 재려면 부위가 필요하다.
+#
+# 어떤 테마도 9슬롯을 다 덮지 않는다. 귤 5부위 · 오렌지 3 · 시계 1 · 수박 1 이고
+# 머리 · 목가슴 · 신발 · 스킨은 테마 없는 공용 품목으로 채운다.
+# 공용 4부위를 공유하므로 14종이면 네 세트의 9부위 합계를 모두 낼 수 있다.
+# 문서 7장의 '세트별 9부위 합계'와 같은 방식으로 묶을 수 있게 세트를 열로 남긴다.
+AVATAR = [
+    ("귤", "트로피컬 바캉스 미니 귤 핀[A타입]"),
+    ("귤", "트로피컬 바캉스 렌즈와 귤 귀걸이[A타입]"),
+    ("귤", "트로피컬 바캉스 귤 수영복 상의[A타입]"),
+    ("귤", "트로피컬 바캉스 귤 수영복 하의[A타입]"),
+    ("귤", "트로피컬 바캉스 귤 랩 스커트[A타입]"),
+    ("오렌지", "트로피컬 바캉스 오렌지 무늬 스티커[A타입]"),
+    ("오렌지", "트로피컬 바캉스 오렌지 무늬 씰[A타입]"),
+    ("오렌지", "트로피컬 바캉스 오렌지 무늬 수영복[A타입]"),
+    ("시계", "트로피컬 바캉스 시계와 목걸이[A타입]"),
+    ("수박", "트로피컬 바캉스 수박 수영복 하의[A타입]"),
+    ("공용", "트로피컬 바캉스 투블럭 헤어[A타입]"),
+    ("공용", "트로피컬 바캉스 목가슴 투명 아바타[A타입]"),
+    ("공용", "트로피컬 바캉스 밴드[A타입]"),
+    ("공용", "트로피컬 바캉스 진줏빛 피부[A타입]"),
+]
+
+WANTED = {label: (group, "") for group, labels in
           (("삭제", DELETED), ("존속", SURVIVES), ("대조", CONTROL))
           for label in labels}
+for _set, _label in AVATAR:
+    WANTED[_label] = ("아바타", _set)
 
 
 def pick_items():
-    """주 수집 목록에서 대상 19종만 골라낸다. 빠진 이름은 실패로 알린다."""
+    """주 수집 목록에서 대상만 골라낸다. 빠진 이름은 실패로 알린다."""
     allitems = json.load(open(ITEM_FILE, encoding="utf-8"))
     bylabel = {i["label"]: i for i in allitems}
     picked, missing = [], []
-    for label in WANTED:
+    for label, (group, setname) in WANTED.items():
         if label in bylabel:
             it = dict(bylabel[label])
-            it["group"] = WANTED[label]
+            it["group"] = group
+            it["set"] = setname
             picked.append(it)
         else:
             missing.append(label)
@@ -98,6 +130,7 @@ def one_pass(items, key, writer, fh):
         row = collect(it, key)
         if row:
             row["구분"] = it["group"]
+            row["세트"] = it["set"]
             writer.writerow(row)
             ok += 1
         else:
@@ -117,7 +150,8 @@ def main():
     print(f"대상 {len(items)}종  "
           f"(삭제 {sum(1 for i in items if i['group']=='삭제')} / "
           f"존속 {sum(1 for i in items if i['group']=='존속')} / "
-          f"대조 {sum(1 for i in items if i['group']=='대조')})")
+          f"대조 {sum(1 for i in items if i['group']=='대조')} / "
+          f"아바타 {sum(1 for i in items if i['group']=='아바타')})")
     if missing:
         print(f"★ 주 목록에서 못 찾은 이름 {len(missing)}개: {missing}")
     if not items:
@@ -131,7 +165,7 @@ def main():
     out = os.path.join(DATA_DIR, f"pkg_{datetime.now(KST):%Y%m}_final_ci.csv")
     new = not os.path.exists(out)
     key = load_key()
-    fields = FIELDS + ["구분"]
+    fields = FIELDS + ["구분", "세트"]
 
     started = datetime.now(KST)
     passes = 0

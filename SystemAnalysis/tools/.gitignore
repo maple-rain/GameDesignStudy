@@ -3,3 +3,5 @@
 # 로컬 수집분은 올리지 않는다. GitHub Actions가 만든 _ci 파일만 저장소에 남긴다.
 data/*
 !data/*_ci.csv
+__pycache__/
+*.pyc

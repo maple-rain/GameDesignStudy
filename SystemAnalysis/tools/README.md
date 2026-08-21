@@ -211,3 +211,26 @@ Windows 작업 스케줄러에 함께 등록해 두면 백업이 된다.
   시간당 체결 건수는 하한값으로 읽어야 한다.
 - 서버별 구분이 없다. 전체 서버 합산인지 확인이 필요하다.
 - 과거는 채울 수 없다. 이 수집기는 **오늘 이후**만 만든다.
+
+## md2pdf.py — 분석서를 인쇄용 PDF로
+
+`DNF_TropicalPackage_BM.md` 를 A4 PDF 로 뽑는다.
+
+```bash
+python SystemAnalysis/tools/md2pdf.py
+chrome --headless=new --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf=SystemAnalysis/DNF_TropicalPackage_BM.pdf \
+  file:///.../SystemAnalysis/DNF_TropicalPackage_BM.html
+```
+
+정한 것 넷.
+
+| 항목 | 값 | 이유 |
+|---|---|---|
+| 본문 폰트 | 맑은 고딕 | 윈도우 기본. 별도 설치 없이 재현됨 |
+| 코드블록 폰트 | 굴림체 | **한글이 영문·숫자의 정확히 2배 폭.** 계산 블록의 숫자 정렬이 유지됨 |
+| 개행 단위 | 부(部)만 새 쪽 | 장마다 개행하면 장 끝 여백이 커짐 (49쪽 → 43쪽) |
+| 인용 블록 | 원문 행 그대로 | markdown 이 연속 `>` 행을 한 문단으로 합치는 것을 강제 개행으로 막음 |
+
+표는 행 단위로 쪼개지고 머리행이 다음 쪽에 반복된다. 코드블록은 쪼개지지 않는다
+(최대 13줄이라 통째로 들어간다).

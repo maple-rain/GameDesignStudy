@@ -1,14 +1,37 @@
 # -*- coding: utf-8 -*-
-"""DNF BM 분석서 markdown -> 인쇄용 HTML. 본문 맑은고딕 / 코드 굴림체(고정폭)."""
-import io, os, sys, markdown
+"""분석서 markdown -> 인쇄용 HTML. 본문 맑은고딕 / 코드 굴림체(고정폭).
+
+    python md2pdf.py <md 경로> [--title "탭 제목"]
+
+정한 것 넷
+  본문은 맑은고딕, 코드블록은 굴림체   굴림체는 한글이 영문의 정확히 2배 폭이라
+                                     계산 블록의 숫자 정렬이 유지된다
+  부(部)만 새 쪽에서 시작한다          장마다 끊으면 쪽 아래에 큰 여백이 남는다
+  목차는 언제나 별도 쪽                부가 없는 문서는 목차 뒤에 개행을 직접 건다
+  인용 블록은 원문 행을 지킨다          원문의 줄 나눔이 뜻을 담고 있다
+"""
+import io, os, re, sys, markdown
 sys.stdout.reconfigure(encoding="utf-8")
 NL = chr(10)
 
-SRC = r"C:\Users\MBC-501-08\Desktop\GameDesignStudy\SystemAnalysis\DNF_TropicalPackage_BM.md"
-OUT = r"C:\Users\MBC-501-08\Desktop\GameDesignStudy\SystemAnalysis\DNF_TropicalPackage_BM.html"
-raw = io.open(SRC, encoding="utf-8").read()
+args = [a for a in sys.argv[1:]]
+title = None
+if "--title" in args:
+    i = args.index("--title")
+    title = args[i + 1]
+    del args[i:i + 2]
+if not args:
+    sys.exit("사용법: python md2pdf.py <md 경로> [--title \"탭 제목\"]")
+
+SRC = os.path.abspath(args[0])
+OUT = os.path.splitext(SRC)[0] + ".html"
+raw = io.open(SRC, encoding="utf-8-sig").read()      # BOM 을 떼고 읽는다
 base = os.path.dirname(SRC).replace("\\", "/")
 raw = raw.replace('src="./images/', 'src="file:///' + base + '/images/')
+
+if title is None:
+    m = re.search(r"^#\s+(.+)$", raw, flags=re.M)
+    title = m.group(1).strip() if m else os.path.basename(SRC)
 
 # 인용 블록 안의 줄바꿈을 살린다. 원문 행 구조가 뜻을 담고 있다.
 lines = raw.split(NL)
@@ -20,7 +43,6 @@ for k in range(len(lines) - 1):
         lines[k] = a.rstrip() + "  "
         brk += 1
 raw = NL.join(lines)
-print("인용 강제 개행 {}곳".format(brk))
 
 md = markdown.Markdown(
     extensions=["tables", "fenced_code", "toc", "sane_lists", "attr_list"],
@@ -29,22 +51,24 @@ md = markdown.Markdown(
 body = md.convert(raw)
 toc = md.toc.strip().replace('<div class="toc">',
                              '<div class="toc"><div class="toctitle">목차</div>', 1)
+
 # 1부 · 2부 · 부록 h1 에만 class="part"
-import re as _re
 def _mark(m):
     inner = m.group(2)
     if "부 ·" in inner or inner.strip() == "부록":
         return '<h1 class="part"' + m.group(1) + '>' + inner + '</h1>'
     return m.group(0)
-body = _re.sub(r'<h1([^>]*)>(.*?)</h1>', _mark, body, flags=_re.S)
-print("부 구분 표시 {}곳".format(body.count('class="part"')))
+body = re.sub(r'<h1([^>]*)>(.*?)</h1>', _mark, body, flags=re.S)
+parts = body.count('class="part"')
 
 i = body.find("<hr />")
 if i > 0:
     body = body[:i] + toc + NL + body[i:]
-    print("목차 삽입 완료")
 else:
-    print("★ <hr /> 미발견 — 목차 없음")
+    print("★ <hr /> 미발견 — 목차를 넣지 못했다")
+
+# 부가 있으면 첫 부의 break-before 가 목차 쪽을 닫는다. 없으면 목차가 직접 닫는다.
+TOC_BREAK = "" if parts else NL + ".toc { break-after: page; }"
 
 CSS = """
 @page { size: A4; margin: 18mm 15mm 20mm 15mm; }
@@ -96,7 +120,7 @@ blockquote p { margin: 0 0 1.6mm; }
 blockquote p:last-child { margin: 0; }
 ul, ol { margin: 0 0 3mm; padding-left: 6.5mm; }
 li { margin-bottom: 1.2mm; }
-.toc { font-size: 9pt; margin: 0; break-before: page; }   /* 목차는 별도 쪽 */
+.toc { font-size: 9pt; margin: 0; break-before: page; }
 .toc ul { padding-left: 0; list-style: none; margin: 0; }
 .toc ul ul { padding-left: 5.5mm; }
 .toc li { margin-bottom: 1.1mm; }
@@ -105,10 +129,12 @@ li { margin-bottom: 1.2mm; }
 .toc a { border: 0; }
 .toctitle { font-size: 14pt; font-weight: 700; margin: 0 0 4mm;
             padding-bottom: 2.4mm; border-bottom: 1.4pt solid #16181d; }
-"""
+""" + TOC_BREAK
+
 html = ('<!DOCTYPE html>' + NL + '<html lang="ko"><head><meta charset="utf-8">' + NL
-        + '<title>던전앤파이터 트로피컬 바캉스 패키지 BM 분석</title>' + NL
+        + '<title>' + title + '</title>' + NL
         + '<style>' + CSS + '</style></head><body>' + NL + body + NL + '</body></html>')
 io.open(OUT, "w", encoding="utf-8").write(html)
-print("HTML {:,}자 · 표 {}개 · 코드블록 {}개 · 인용 {}개".format(
-    len(html), body.count("<table>"), body.count("<pre>"), body.count("<blockquote>")))
+print("{}  인용개행 {}곳 · 부 {}개 · 표 {}개 · 코드 {}개 · 인용 {}개 · {:,}자".format(
+    os.path.basename(OUT), brk, parts, body.count("<table>"),
+    body.count("<pre>"), body.count("<blockquote>"), len(html)))

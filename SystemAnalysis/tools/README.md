@@ -214,23 +214,37 @@ Windows 작업 스케줄러에 함께 등록해 두면 백업이 된다.
 
 ## md2pdf.py — 분석서를 인쇄용 PDF로
 
-`DNF_TropicalPackage_BM.md` 를 A4 PDF 로 뽑는다.
+분석서 `.md` 하나를 A4 PDF 로 뽑는다. 산출물은 `SystemAnalysis/pdf/` 에 둔다.
 
 ```bash
-python SystemAnalysis/tools/md2pdf.py
-chrome --headless=new --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf=SystemAnalysis/DNF_TropicalPackage_BM.pdf \
-  file:///.../SystemAnalysis/DNF_TropicalPackage_BM.html
+python SystemAnalysis/tools/md2pdf.py SystemAnalysis/DNF_TropicalPackage_BM.md
+chrome --headless=new --disable-gpu --no-pdf-header-footer   --print-to-pdf=SystemAnalysis/pdf/DNF_TropicalPackage_BM.pdf   file:///.../SystemAnalysis/DNF_TropicalPackage_BM.html
 ```
 
-정한 것 넷.
+`--title "탭 제목"` 을 주지 않으면 문서의 첫 `#` 제목을 쓴다. 파일은 `utf-8-sig` 로 읽는다
+(`DNF_JungCheon_Farming.md` 에 BOM 이 있고, 그대로 읽으면 첫 줄이 제목으로 잡히지 않는다).
+중간 산출물 `.html` 은 `.gitignore` 에 있다.
+
+정한 것 다섯.
 
 | 항목 | 값 | 이유 |
 |---|---|---|
 | 본문 폰트 | 맑은 고딕 | 윈도우 기본. 별도 설치 없이 재현됨 |
 | 코드블록 폰트 | 굴림체 | **한글이 영문·숫자의 정확히 2배 폭.** 계산 블록의 숫자 정렬이 유지됨 |
 | 개행 단위 | 부(部)만 새 쪽 | 장마다 개행하면 장 끝 여백이 커짐 (49쪽 → 43쪽) |
+| 목차 | 언제나 별도 쪽 | 부가 있으면 첫 부의 `break-before` 가 목차 쪽을 닫고, 부가 없으면 `.toc` 에 `break-after` 를 건다. 둘을 같이 걸면 빈 쪽이 생김 |
 | 인용 블록 | 원문 행 그대로 | markdown 이 연속 `>` 행을 한 문단으로 합치는 것을 강제 개행으로 막음 |
 
-표는 행 단위로 쪼개지고 머리행이 다음 쪽에 반복된다. 코드블록은 쪼개지지 않는다
-(최대 13줄이라 통째로 들어간다).
+표는 행 단위로 쪼개지고 머리행이 다음 쪽에 반복된다. 코드블록은 쪼개지지 않는다.
+
+던파 세 편 실측.
+
+| 문서 | 쪽 | 빈 쪽 | 코드 최대폭 | 한글 |
+|---|---|---|---|---|
+| 중천 파밍 | 10 | 0 | 80 | 4,523자 |
+| 소울 시세 | 14 | 0 | 79 | 7,451자 |
+| 트로피컬 BM | 43 | 0 | 98 | 25,007자 |
+
+세 편 모두 1쪽 제목·머리말 / 2쪽 목차 / 3쪽부터 본문이다 (트로피컬은 목차가 2~3쪽).
+코드블록 폭 한도는 116 이다 — 8.4pt 굴림체로 본문폭 180mm 에서 `pre` 여백을 뺀 값이고,
+한글은 2로 센다.

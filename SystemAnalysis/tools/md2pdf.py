@@ -96,7 +96,7 @@ blockquote p { margin: 0 0 1.6mm; }
 blockquote p:last-child { margin: 0; }
 ul, ol { margin: 0 0 3mm; padding-left: 6.5mm; }
 li { margin-bottom: 1.2mm; }
-.toc { font-size: 9pt; margin: 6mm 0 0; }   /* 뒤의 1부가 이미 개행한다 */
+.toc { font-size: 9pt; margin: 0; break-before: page; }   /* 목차는 별도 쪽 */
 .toc ul { padding-left: 0; list-style: none; margin: 0; }
 .toc ul ul { padding-left: 5.5mm; }
 .toc li { margin-bottom: 1.1mm; }

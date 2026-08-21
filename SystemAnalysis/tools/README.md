@@ -234,8 +234,39 @@ chrome --headless=new --disable-gpu --no-pdf-header-footer   --print-to-pdf=Syst
 | 개행 단위 | 부(部)만 새 쪽 | 장마다 개행하면 장 끝 여백이 커짐 (49쪽 → 43쪽) |
 | 목차 | 언제나 별도 쪽 | 부가 있으면 첫 부의 `break-before` 가 목차 쪽을 닫고, 부가 없으면 `.toc` 에 `break-after` 를 건다. 둘을 같이 걸면 빈 쪽이 생김 |
 | 인용 블록 | 원문 행 그대로 | markdown 이 연속 `>` 행을 한 문단으로 합치는 것을 강제 개행으로 막음 |
+| 다른 파일 링크 | 뗀다 | Chrome 이 상대 경로를 **`/Launch` 액션**으로 바꿔 넣는다. 아래 절 참고 |
 
 표는 행 단위로 쪼개지고 머리행이 다음 쪽에 반복된다. 코드블록은 쪼개지지 않는다.
+
+### /Launch 때문에 업로드가 막혔다
+
+네오플 지원서 폼에서 「업로드 정책을 위반」이 떠서 원인을 찾았다. 용량도 파일명도 아니었다.
+
+```
+LostArk_Refining_SWOT.pdf   /URI  0회 · /Launch 0개   ->  올라감
+DNF_JungCheon_Farming.pdf   /URI 10회 · /Launch 4개   ->  막힘
+```
+
+`/Launch` 는 PDF 가 로컬 파일을 실행하라고 지시하는 액션이고 악성 PDF 의 상투적 수법이라
+기업 업로드 필터가 막는다. 원인은 마크다운의 상대 링크였다.
+
+```
+[젠레스](./ZZZ_GrowthCurve.md)
+  -> Chrome 이 /Launch 로 변환
+  -> /C:/Users/<계정>/Desktop/GameDesignStudy/SystemAnalysis/ZZZ_GrowthCurve...
+```
+
+**문서에 작성자의 로컬 폴더 경로가 그대로 박힌다.** 남의 컴퓨터에서는 깨지는 링크이기도 하다.
+그래서 md2pdf 는 `#` 으로 시작하지 않는 로컬 파일 링크를 항상 뗀다. 목차가 쓰는 `#앵커`
+이동은 남긴다. 제출용으로 뽑을 때는 `--no-external-links` 로 `http(s)` 까지 뗀다 —
+필터가 `/URI` 도 막는지는 확인하지 못했으므로 0 으로 맞추는 쪽을 택했다. 링크를 떼도
+URL 글자는 본문에 남으므로 출처는 그대로 읽힌다.
+
+검사는 이렇게 한다.
+
+```bash
+python -c "import io,sys; r=io.open(sys.argv[1],'rb').read(); print('/URI',r.count(b'/URI'),'/Launch',r.count(b'/Launch'),'경로',r.count(b'file:///'))" SystemAnalysis/pdf/DNF_TropicalPackage_BM.pdf
+```
 
 던파 세 편 실측.
 

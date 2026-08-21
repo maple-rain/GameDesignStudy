@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """분석서 markdown -> 인쇄용 HTML. 본문 맑은고딕 / 코드 굴림체(고정폭).
 
-    python md2pdf.py <md 경로> [--title "탭 제목"]
+    python md2pdf.py <md 경로> [--title "탭 제목"] [--no-external-links]
 
 정한 것 넷
   본문은 맑은고딕, 코드블록은 굴림체   굴림체는 한글이 영문의 정확히 2배 폭이라
@@ -15,6 +15,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 NL = chr(10)
 
 args = [a for a in sys.argv[1:]]
+no_ext = "--no-external-links" in args
+args = [a for a in args if a != "--no-external-links"]
 title = None
 if "--title" in args:
     i = args.index("--title")
@@ -49,6 +51,21 @@ md = markdown.Markdown(
     extension_configs={"toc": {"toc_depth": "2-3"}},
 )
 body = md.convert(raw)
+# 다른 파일로 가는 링크를 뗀다. Chrome 은 상대 경로를 /Launch 액션으로 바꿔 넣는데,
+# /Launch 는 로컬 파일 실행 지시라서 업로드 필터가 막고 문서에 내 폴더 경로가 남는다.
+# 문서 안 이동(#앵커)은 살린다 — 목차가 그것으로 돈다.
+def _delink(m):
+    href, inner = m.group(1), m.group(2)
+    if href.startswith("#"):
+        return m.group(0)
+    if href.startswith(("http://", "https://")):
+        return inner if no_ext else m.group(0)
+    return inner                                  # 로컬 파일 경로는 무조건 뗀다
+before = body.count("<a ")
+body = re.sub(r'<a href="([^"]*)"[^>]*>(.*?)</a>', _delink, body, flags=re.S)
+print("링크 {} -> {}개 ({})".format(
+    before, body.count("<a "), "외부까지 제거" if no_ext else "로컬 파일 링크만 제거"))
+
 toc = md.toc.strip().replace('<div class="toc">',
                              '<div class="toc"><div class="toctitle">목차</div>', 1)
 

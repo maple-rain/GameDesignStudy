@@ -16,7 +16,7 @@
 | 2025-11 ~ 2026-01 | [마비노기 모바일 재화 구조](./SystemAnalysis/Mabinogi_CurrencyMap.md) | 7시트 1,000행+ | **재고** — 카탈로그를 전수 조사하는 방법 |
 | 2026-01 | [젠레스 존 제로 성장 곡선](./SystemAnalysis/ZZZ_GrowthCurve.md) | 4시트 + 차트 | **유량** — 획득 속도를 측정하는 방법 |
 | 2026-08 | [던전앤파이터 중천 파밍 구조](./SystemAnalysis/DNF_JungCheon_Farming.md) | 플레이 경험 + 시세·드랍률 자료 | **재고와 유량의 결합** — 유입을 1인분에 맞추면 그 이상은 재고에서 나온다 |
-| 2026-07 ~ 08 | [게임 분해 21종](./GameAnalysis) | 분석 21개 + [개념 연구 6개](./MechanicStudy) | 메커닉 분석 프레임워크 정립 |
+| 2026-07 ~ 08 | [게임 분해 23종](./GameAnalysis) | 분석 23개 + [개념 연구 6개](./MechanicStudy) | 메커닉 분석 프레임워크 정립 |
 
 ---
 
@@ -262,7 +262,7 @@ Slay the Spire는 직접 플레이 없이 공략에 의존했다.
 |---|---|
 | 마비노기 무과금 관점 (골드 일일 수급) | 미완 — 설계는 끝났고 인게임 측정만 남음. **과금 설계 분석은 완결** |
 | 젠레스 데니(재화) 축 | 미완 — 경험치 축은 완성 |
-| 직접 플레이 기반 분석 | 21개 중 9개가 영상·자료 기반 (Hollow Knight는 중도 중단, Hades · 완다와 거상 · Devil May Cry 5는 전부 자료 기반) |
+| 직접 플레이 기반 분석 | 23개 중 9개가 영상·자료 기반 (Hollow Knight는 중도 중단, Hades · 완다와 거상 · Devil May Cry 5는 전부 자료 기반) |
 | 기획서 수치 검증 | v0.2. 적개심 문제는 **먹이**로 해결. 남은 것은 색 지속 시간과 문어 저지 강도 |
 | 구현 | Unity 적 개발 진행 중. 기획서와 아직 연결되지 않음 |
 
@@ -276,7 +276,7 @@ Slay the Spire는 직접 플레이 없이 공략에 의존했다.
 | 관점 | 문서 |
 |---|---|
 | 메커닉을 어떻게 분석하는가 | [Analysis Framework](./AnalysisFramework.md) |
-| 게임 하나를 어떻게 분해했는가 | [GameAnalysis](./GameAnalysis) — 21개 |
+| 게임 하나를 어떻게 분해했는가 | [GameAnalysis](./GameAnalysis) — 23개 |
 | 게임을 관통하는 개념 | [MechanicStudy](./MechanicStudy) — 6개 |
 | 서비스와 경제를 어떻게 보는가 | [SystemAnalysis](./SystemAnalysis) — 5개 |
 | 직접 설계한 것 | [DesignDoc](./DesignDoc) |

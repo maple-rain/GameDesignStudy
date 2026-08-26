@@ -145,6 +145,41 @@ def one_pass(items, key, writer, fh):
     return ok, fail
 
 
+def push(out, passes):
+    """수집 도중에 중간 커밋한다.
+
+    장기 실행(350분)은 잡이 끝나야 워크플로가 커밋한다. 그사이 잡이 취소되거나
+    러너가 죽으면 여섯 시간치가 통째로 사라진다. 이 구간은 판매 종료 전이라
+    다시 못 받는다. 그래서 몇 회마다 끊어서 올린다.
+
+    파일을 열어 둔 채로 rebase 하면 파일이 새로 쓰이면서 열린 fd 가 없어진 쪽을
+    가리킨다. 그래서 main() 은 매 회차마다 열고 닫는다.
+    """
+    import subprocess
+
+    def run(*a):
+        return subprocess.run(a, capture_output=True, text=True)
+
+    if not run("git", "config", "user.name").stdout.strip():
+        run("git", "config", "user.name", "github-actions[bot]")
+        run("git", "config", "user.email",
+            "41898282+github-actions[bot]@users.noreply.github.com")
+
+    run("git", "add", out)
+    if run("git", "diff", "--staged", "--quiet").returncode == 0:
+        print("  중간 커밋: 변화 없음", flush=True)
+        return
+    stamp = f"{datetime.now(KST):%Y-%m-%d %H:%M}"
+    run("git", "commit", "-m", f"종료 구간 수집 중간 {stamp} KST ({passes}회차)")
+    for _ in range(5):
+        if (run("git", "pull", "--rebase", "origin", "main").returncode == 0
+                and run("git", "push", "origin", "main").returncode == 0):
+            print(f"  중간 커밋 완료 ({passes}회차)", flush=True)
+            return
+        time.sleep(15)
+    print("  ★ 중간 푸시 실패. 다음 회차에 다시 시도한다.", flush=True)
+
+
 def main():
     items, missing = pick_items()
     print(f"대상 {len(items)}종  "
@@ -159,6 +194,8 @@ def main():
 
     loop_min = int(os.environ.get("FINAL_LOOP_MIN", "0") or 0)
     interval = int(os.environ.get("FINAL_INTERVAL_SEC", "300") or 300)
+    # 0 이면 중간 커밋을 하지 않는다. 로컬에서 돌릴 때의 기본값이다.
+    push_every = int(os.environ.get("FINAL_PUSH_EVERY", "0") or 0)
 
     os.makedirs(DATA_DIR, exist_ok=True)
     # 파일명이 _ci.csv 로 끝나야 .gitignore 예외에 걸려 저장소에 남는다
@@ -169,19 +206,23 @@ def main():
 
     started = datetime.now(KST)
     passes = 0
-    with open(out, "a", encoding="utf-8-sig", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=fields)
-        if new:
-            w.writeheader()
-        while True:
+    # 중간 커밋이 파일을 새로 쓸 수 있어서 매 회차마다 열고 닫는다.
+    while True:
+        with open(out, "a", encoding="utf-8-sig", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=fields)
+            if new:
+                w.writeheader()
+                new = False
             one_pass(items, key, w, fh)
-            passes += 1
-            if loop_min <= 0:
-                break
-            elapsed = (datetime.now(KST) - started).total_seconds() / 60
-            if elapsed + interval / 60 > loop_min:
-                break
-            time.sleep(interval)
+        passes += 1
+        if loop_min <= 0:
+            break
+        if push_every and passes % push_every == 0:
+            push(out, passes)
+        elapsed = (datetime.now(KST) - started).total_seconds() / 60
+        if elapsed + interval / 60 > loop_min:
+            break
+        time.sleep(interval)
 
     print(f"{passes}회 수집  ->  {out}")
 

@@ -176,8 +176,11 @@ def push(out, passes):
                 and run("git", "push", "origin", "main").returncode == 0):
             print(f"  중간 커밋 완료 ({passes}회차)", flush=True)
             return
+        # 충돌한 채로 두면 다음 회차의 add/commit 이 전부 어긋난다.
+        run("git", "rebase", "--abort")
         time.sleep(15)
-    print("  ★ 중간 푸시 실패. 다음 회차에 다시 시도한다.", flush=True)
+    # 커밋은 로컬에 남아 있다. 워크플로 마지막 「커밋」 단계가 이걸 찾아서 올린다.
+    print("  ★ 중간 푸시 실패. 로컬 커밋은 남아 있고 다음 회차에 다시 시도한다.", flush=True)
 
 
 def main():

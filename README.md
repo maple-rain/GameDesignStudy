@@ -38,7 +38,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [ResearchLog.md](./ResearchLog.md) | 18개월간 분석 방법이 어떻게 바뀌었는가 |
-| [TIL/](./TIL) | 날짜별 학습 기록 30개 + [개념 목록과 판단이 바뀐 기록](./TIL/LearnedConcepts.md) |
+| [TIL/](./TIL) | 날짜별 학습 기록 31개 + [개념 목록과 판단이 바뀐 기록](./TIL/LearnedConcepts.md) |
 
 ```
 GameDesignStudy

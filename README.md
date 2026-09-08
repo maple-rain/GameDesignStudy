@@ -10,7 +10,7 @@
 | | 무엇을 |
 |---|---|
 | **만들었다** | 팀 프로젝트 5개 — 전부 팀장. 적 AI · UI · 맵 · 게임 흐름 |
-| **분석했다** | 게임 29개 · 설계 개념 6개 · 서비스와 경제 6개 |
+| **분석했다** | 게임 31개 · 설계 개념 6개 · 서비스와 경제 6개 |
 | **설계했다** | 기획서 3편 — 분석에서 얻은 원리를 적용 |
 
 2025년 2월부터 약 18개월간 이어온 작업이며,
@@ -28,7 +28,7 @@
 | 폴더 | 관점 | 내용 |
 |---|---|---|
 | [AnalysisFramework.md](./AnalysisFramework.md) | 방법 | 게임을 분해하는 절차와 언어 규칙 |
-| [GameAnalysis/](./GameAnalysis) | **메커닉** | 게임 하나를 10단계 템플릿으로 분석 — 29개 |
+| [GameAnalysis/](./GameAnalysis) | **메커닉** | 게임 하나를 10단계 템플릿으로 분석 — 31개 |
 | [MechanicStudy/](./MechanicStudy) | **개념** | 여러 게임에서 공통으로 나타난 설계 원리 — 6개 |
 | [SystemAnalysis/](./SystemAnalysis) | **서비스 · 경제** | 운영되는 게임의 시스템과 재화 구조 — 6개 |
 | [DesignDoc/](./DesignDoc) | **설계** | 직접 만든 기획 산출물 |
@@ -38,7 +38,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [ResearchLog.md](./ResearchLog.md) | 18개월간 분석 방법이 어떻게 바뀌었는가 |
-| [TIL/](./TIL) | 날짜별 학습 기록 31개 + [개념 목록과 판단이 바뀐 기록](./TIL/LearnedConcepts.md) |
+| [TIL/](./TIL) | 날짜별 학습 기록 33개 + [개념 목록과 판단이 바뀐 기록](./TIL/LearnedConcepts.md) |
 
 ```
 GameDesignStudy
@@ -179,6 +179,8 @@ Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, �
 | [Alien: Isolation](./GameAnalysis/AlienIsolation.md) | 지금 안전하다는 확신 | **잔량이 보이지 않는 자원** · 정보를 조각으로 주는 설계 |
 | [DEATHLOOP](./GameAnalysis/Deathloop.md) | 하루의 시간대 슬롯 (정찰과 실행이 나눠 쓴다) | 지식을 성장 곡선으로 쓴 구조 · 알아내는 것과 해내는 것의 분리 |
 | [Metal Gear Solid V](./GameAnalysis/MetalGearSolidV.md) | 아직 대응책이 붙지 않은 전술 | **방법이 닳는 자원** · 세계가 적응해서 다양성을 강제하는 구조 |
+| [Stardew Valley](./GameAnalysis/StardewValley.md) | 하루 (시간과 에너지, 상한이 두 개) | 무엇을 포기할지 묻는 설계 · 최적화 욕구가 게임 밖으로 나가는 문제 |
+| [세키로](./GameAnalysis/Sekiro.md) | 체간 — 양쪽이 서로 미는 주도권 | **경합하는 자원** · 습관을 교정하는 판정 설계 |
 
 ## MechanicStudy — 개념 연구
 
@@ -231,7 +233,7 @@ Dev_1Seo  →  Merge 'Dev-Kangeun2'  ·  Merge 'DEV_JungHo2'      (B04Project, �
 
 ## 진행 상황
 
-- [x] GameAnalysis 13개 문서를 10단계 템플릿으로 통일 (이후 Disco Elysium · Hades · 완다와 거상 · Devil May Cry 5 · Shadow Tactics · Katana ZERO · Monster Hunter: World · Sleeping Dogs · Dishonored · Hitman · BioShock Infinite · The Last of Us Part I · Resident Evil 2 · Alien: Isolation · DEATHLOOP · Metal Gear Solid V 추가로 29개)
+- [x] GameAnalysis 13개 문서를 10단계 템플릿으로 통일 (이후 Disco Elysium · Hades · 완다와 거상 · Devil May Cry 5 · Shadow Tactics · Katana ZERO · Monster Hunter: World · Sleeping Dogs · Dishonored · Hitman · BioShock Infinite · The Last of Us Part I · Resident Evil 2 · Alien: Isolation · DEATHLOOP · Metal Gear Solid V · Stardew Valley · 세키로 추가로 31개)
 - [x] MechanicStudy 6개 개념 문서 작성
 - [ ] Vampire Survivors · Slay the Spire를 [Possibility Space](./MechanicStudy/PossibilitySpace.md)의 다섯 질문으로 다시 읽기
 - [x] SystemAnalysis 3개 문서화 (로스트아크 예측 검증 포함)
